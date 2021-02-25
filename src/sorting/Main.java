@@ -36,6 +36,7 @@ public class Main {
 	
 	public static void bubbleSort() throws IOException{
 		BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+		
 		for(int i = 0; i < array.length; i++){
 			int totalChanges=0;
 			int aux=0;
@@ -53,9 +54,6 @@ public class Main {
 				aux++;
 				totalChanges+=changes;
 			}	
-			
-			
-			
 			DecimalFormat df=new DecimalFormat("0.0#");
 			double average=(double)totalChanges/aux;
 			double totalAverage=Math.floor(average*100)/100;
