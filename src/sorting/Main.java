@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 import java.util.Arrays;
 
 public class Main {
-	private static final String SEP="";
+	private static final String SEP=" ";
 	private static double [][] array;
 	
 	public static void main(String[] args) throws IOException{
@@ -16,28 +16,22 @@ public class Main {
 		bubbleSort();
 	}
 	
-	public static void readSorting() {
+	public static void readSorting() throws IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-		try {
+		
 			String line = br.readLine();
 			int n =Integer.parseInt(line);
 			array = new double [n][];
-			line = br.readLine();
-			for(int i=0;i<array.length && line != null;i++) {
+			for(int i=0;i<n;i++) {
+				line = br.readLine();
 				String[] comp = line.split(SEP);
 				double[] sequence = new double [comp.length];
 				for(int j=0; j<comp.length;j++) {
 					sequence[j] = Double.parseDouble(comp[j]);
 				}
 				array[i]=sequence;
-				line=br.readLine();
 			}
 			br.close();
-		}catch (NumberFormatException exception){
-			System.out.println("It is not an integer");
-		}catch(IOException exception) {
-			System.out.println("Cannot be read");
-		}
 	}
 	
 	public static void bubbleSort() throws IOException{
@@ -59,6 +53,9 @@ public class Main {
 				aux++;
 				totalChanges+=changes;
 			}	
+			
+			
+			
 			DecimalFormat df=new DecimalFormat("0.0#");
 			double average=(double)totalChanges/aux;
 			double totalAverage=Math.floor(average*100)/100;
